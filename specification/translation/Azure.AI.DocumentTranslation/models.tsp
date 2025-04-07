@@ -474,7 +474,7 @@ model DocumentTranslateBody {
   contentType: "multipart/form-data";
 
   @doc("Document Translate Request Content")
-  @body
+  @multipartBody
   body: DocumentTranslateContent;
 }
 

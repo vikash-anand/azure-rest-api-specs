@@ -1,1 +1,1 @@
-origin/formatCommand
+origin/testlog

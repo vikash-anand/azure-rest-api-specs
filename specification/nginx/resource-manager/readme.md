@@ -68,6 +68,13 @@ suppressions:
     from: openai.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
     reason: This is by design as agreed with the partner
+  - code: RequiredDefaultResponse
+    from: openai.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
+    reason: This is by design as agreed with the partner
+- code: AvoidAnonymousTypes
+    from: specification\nginx\resource-manager\NGINX.NGINXPLUS\preview\2025-03-01-preview\openapi.json
+    reason: User Assigned Managed Identity Type inline definition is automtaically added to json.
 ```
 
 ### Tag: package-2024-11-01-preview

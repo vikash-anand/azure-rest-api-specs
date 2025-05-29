@@ -4,6 +4,7 @@ import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 
 using Rest;
+using Http;
 using Azure.ResourceManager;
 
 namespace Nginx.NginxPlus;
@@ -173,6 +174,165 @@ model NginxConfigurationListResponse {
 }
 
 /**
+ * Analysis request payload for configuration analysis.
+ */
+model AnalysisCreate {
+  /**
+   * The configuration details to analyze.
+   */
+  config: {
+    /**
+     * Path to the root configuration file.
+     */
+    rootFile: string;
+
+    /**
+     * List of additional configuration files.
+     */
+    @OpenAPI.extension("x-ms-identifiers", #["virtualPath"])
+    files?: NginxConfigurationFile[];
+
+    /**
+     * List of protected file requests for analysis.
+     */
+    @OpenAPI.extension("x-ms-identifiers", #["virtualPath"])
+    protectedFiles?: NginxConfigurationProtectedFileRequest[];
+
+    /**
+     * Configuration package data for analysis.
+     */
+    package?: NginxConfigurationPackage;
+  };
+}
+
+/**
+ * Represents a diagnostic message from analysis.
+ */
+model AnalysisDiagnostic {
+  /**
+   * Unique identifier of the diagnostic.
+   */
+  id?: string;
+
+  /**
+   * Directive that triggered the diagnostic.
+   */
+  directive: string;
+
+  /**
+   * Description of the diagnostic.
+   */
+  description: string;
+
+  /**
+   * File in which the diagnostic occurred.
+   */
+  file: string;
+
+  /**
+   * Line number where the issue was found.
+   */
+  line: int32;
+
+  /**
+   * Detailed diagnostic message.
+   */
+  message: string;
+
+  /**
+   * Identifier of the rule violated.
+   */
+  rule: string;
+}
+
+/**
+ * Detailed diagnostic item including severity.
+ */
+model DiagnosticItem {
+  /**
+   * Unique diagnostic identifier.
+   */
+  id?: string;
+
+  /**
+   * Directive text related to the diagnostic.
+   */
+  directive: string;
+
+  /**
+   * Human-readable description of the issue.
+   */
+  description: string;
+
+  /**
+   * File path associated with the diagnostic.
+   */
+  file: string;
+
+  /**
+   * Line number in the file.
+   */
+  line: int32;
+
+  /**
+   * Diagnostic message.
+   */
+  message: string;
+
+  /**
+   * Rule name that was violated.
+   */
+  rule: string;
+
+  /**
+   * Severity level of the diagnostic.
+   */
+  level: SeverityLevel;
+
+  /**
+   * Category of the diagnostic.
+   */
+  category?: string;
+}
+
+/** Severity Level of the analysis */
+union SeverityLevel {
+  /** Severity Level Info. */
+  Info: "Info",
+
+  /** Severity Level Warning. */
+  Warning: "Warning",
+
+  /** Custom identity type not covered by pre-defined values. */
+  string,
+}
+
+/**
+ * Result of configuration analysis.
+ */
+model AnalysisResult {
+  /**
+   * Overall status of the analysis process.
+   */
+  status: string;
+
+  /**
+   * Detailed analysis data, including errors and diagnostics.
+   */
+  data?: {
+    /**
+     * List of error diagnostics.
+     */
+    errors?: AnalysisDiagnostic[];
+
+    /**
+     * List of analysis diagnostic items.
+     */
+    diagnostics?: DiagnosticItem[];
+  };
+}
+
+/**
  * Operations on Nginx configurations under a given deployment.
  */
 @armResourceOperations
@@ -210,4 +370,18 @@ interface Configurations {
    * Lists all configurations in a parent deployment.
    */
   listByDeployment is ArmResourceListByParent<Configuration>;
+
+  /**
+   * Analyzes a configuration.
+   */
+  @post
+  @segment("analyze")
+  @armResourceCollectionAction
+  analyzeConfiguration(
+    ...ResourceInstanceParameters<Configuration>,
+
+    @doc("The analysis request body containing configuration details.")
+    @bodyRoot
+    resource: AnalysisCreate,
+  ): ArmResponse<AnalysisResult>;
 }

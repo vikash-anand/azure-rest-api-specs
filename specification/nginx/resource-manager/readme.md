@@ -38,6 +38,16 @@ These settings apply only when `--tag=package-2025-03-01-preview` is specified o
 ```yaml $(tag) == 'package-2025-03-01-preview'
 input-file:
   - NGINX.NGINXPLUS/preview/2025-03-01-preview/openapi.json
+
+suppressions:
+  - code: GetCollectionResponseSchema
+    from: swagger.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{deploymentName}/wafPolicies"]
+    reason: This is by design to avoid high bandwidth consumption as agreed with the partner
+  - code: PutRequestResponseSchemeArm
+    from: swagger.json
+    where: $.paths[""/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/apiKeys/{apiKeyName}""]
+    reason: This is by design as agreed with the partner
 ```
 
 ### Tag: package-2024-11-01-preview

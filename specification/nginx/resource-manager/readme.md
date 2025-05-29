@@ -72,9 +72,9 @@ suppressions:
     from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
     reason: This is by design as agreed with the partner
-- code: AvoidAnonymousTypes
-    from: openapi.json
-    reason: User Assigned Managed Identity Type inline definition is automtaically added to json.
+  - code: AvoidAnonymousTypes
+      from: openapi.json
+      reason: User Assigned Managed Identity Type inline definition is automatically added to json.
 ```
 
 ### Tag: package-2024-11-01-preview

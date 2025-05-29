@@ -181,13 +181,13 @@
           "dataplaneApiEndpoint": "dlrtbdswoorqtkakjslfcuhgsva"
         },
         "identity": {
-          "principalId": "waeqxkl",
-          "tenantId": "eoslkdshs",
+          "principalId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
+          "tenantId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
           "type": "None",
           "userAssignedIdentities": {
             "key480": {
-              "principalId": "tahzxkpcvzybddszdtectzocnhuzi",
-              "clientId": "zisufnfbsumfe"
+              "principalId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
+              "clientId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657"
             }
           }
         },
@@ -202,7 +202,7 @@
           "key6788": "ocbflwfgetcdxdhnwe"
         },
         "location": "dmy",
-        "id": "aelcnaoah",
+        "id": "/subscriptions/333F7B80-063D-40E5-975B-6E3C3CAC8296/resourceGroups/rgopenapi/providers/NGINX.NGINXPLUS/nginxDeployments/myDeployment",
         "name": "zpngfjhytajcvheoayopelklmzzpk",
         "type": "cxgktqvbtlxwjzc",
         "systemData": {
@@ -297,13 +297,13 @@
           "dataplaneApiEndpoint": "dlrtbdswoorqtkakjslfcuhgsva"
         },
         "identity": {
-          "principalId": "waeqxkl",
-          "tenantId": "eoslkdshs",
+          "principalId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
+          "tenantId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
           "type": "None",
           "userAssignedIdentities": {
             "key480": {
-              "principalId": "tahzxkpcvzybddszdtectzocnhuzi",
-              "clientId": "zisufnfbsumfe"
+              "principalId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657",
+              "clientId": "32ae2eb4-67c5-408e-90b6-6cfe1ca82657"
             }
           }
         },
@@ -318,7 +318,7 @@
           "key6788": "ocbflwfgetcdxdhnwe"
         },
         "location": "dmy",
-        "id": "aelcnaoah",
+        "id": "/subscriptions/333F7B80-063D-40E5-975B-6E3C3CAC8296/resourceGroups/rgopenapi/providers/NGINX.NGINXPLUS/nginxDeployments/myDeployment",
         "name": "zpngfjhytajcvheoayopelklmzzpk",
         "type": "cxgktqvbtlxwjzc",
         "systemData": {

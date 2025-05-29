@@ -38,7 +38,7 @@
             "message": "wqvmvmvchwavboxzhrhne"
           }
         },
-        "id": "yrzgxibtdwpteqhdpsbgw",
+        "id": "/subscriptions/333F7B80-063D-40E5-975B-6E3C3CAC8296/resourceGroups/rgopenapi/providers/NGINX.NGINXPLUS/nginxDeployments/myDeployment/certificates/myCertificate",
         "name": "gr",
         "type": "moqybsvacvokh",
         "systemData": {
@@ -69,7 +69,7 @@
             "message": "wqvmvmvchwavboxzhrhne"
           }
         },
-        "id": "yrzgxibtdwpteqhdpsbgw",
+        "id": "/subscriptions/333F7B80-063D-40E5-975B-6E3C3CAC8296/resourceGroups/rgopenapi/providers/NGINX.NGINXPLUS/nginxDeployments/myDeployment/certificates/myCertificate",
         "name": "gr",
         "type": "moqybsvacvokh",
         "systemData": {

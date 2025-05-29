@@ -53,23 +53,23 @@ suppressions:
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}"]
     reason: This is by design as agreed with the partner
   - code: PutResponseCodes
-    from: openai.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/apiKeys/{apiKeyName}"]
     reason: This is by design as agreed with the partner
   - code: PutResponseCodes
-    from: openai.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}"]
     reason: This is by design as agreed with the partner
   - code: PostResponseCodes
-    from: openai.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}/analyze"]
     reason: This is by design as agreed with the partner
   - code: PostResponseCodes
-    from: openai.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
     reason: This is by design as agreed with the partner
   - code: RequiredDefaultResponse
-    from: openai.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
     reason: This is by design as agreed with the partner
 - code: AvoidAnonymousTypes

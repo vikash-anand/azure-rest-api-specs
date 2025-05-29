@@ -41,12 +41,32 @@ input-file:
 
 suppressions:
   - code: GetCollectionResponseSchema
-    from: swagger.json
+    from: openapi.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{deploymentName}/wafPolicies"]
     reason: This is by design to avoid high bandwidth consumption as agreed with the partner
   - code: PutRequestResponseSchemeArm
-    from: swagger.json
-    where: $.paths[""/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/apiKeys/{apiKeyName}""]
+    from: openapi.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/apiKeys/{apiKeyName}"]
+    reason: This is by design as agreed with the partner
+  - code: PutRequestResponseSchemeArm
+    from: openapi.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}"]
+    reason: This is by design as agreed with the partner
+  - code: PutResponseCodes
+    from: openai.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/apiKeys/{apiKeyName}"]
+    reason: This is by design as agreed with the partner
+  - code: PutResponseCodes
+    from: openai.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}"]
+    reason: This is by design as agreed with the partner
+  - code: PostResponseCodes
+    from: openai.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/configurations/{configurationName}/analyze"]
+    reason: This is by design as agreed with the partner
+  - code: PostResponseCodes
+    from: openai.json
+    where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/listDefaultWafPolicies"]
     reason: This is by design as agreed with the partner
 ```
 

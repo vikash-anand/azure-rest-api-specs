@@ -154,7 +154,7 @@ union BatchPoolLifetimeOption {
   Job: "job",
 }
 
-@doc("The IP families used to specify IP versions available to the pool. enums")
+@doc("The IP families used to specify IP versions available to the pool.")
 union IPFamily {
   string,
 
@@ -680,10 +680,10 @@ union HostEndpointSettingsModeTypes {
   string,
 
   @doc("In Audit mode, the system acts as if it is enforcing the access control policy, including emitting access denial entries in the logs but it does not actually deny any requests to host endpoints.")
-  Audit: "automatic",
+  Audit: "Audit",
 
   @doc("Enforce mode is the recommended mode of operation and system will enforce the access control policy. This property cannot be used together with 'inVMAccessControlProfileReferenceId'.")
-  Enforce: "manual",
+  Enforce: "Enforce",
 }
 
 @doc("SchedulingState enums")
@@ -2232,7 +2232,7 @@ model BatchDiffDiskSettings {
 @doc("Specifies how Tasks should be distributed across Compute Nodes.")
 model BatchTaskSchedulingPolicy {
   @doc("The order for scheduling tasks from different jobs with the same priority. If not specified, the default is none.")
-  jobDefaultOrder?: BatchJobDefaultOrder;
+  jobDefaultOrder?: BatchJobDefaultOrder = BatchJobDefaultOrder.None;
 
   @doc("How Tasks are distributed across Compute Nodes in a Pool. If not specified, the default is spread.")
   nodeFillType: BatchNodeFillType;
@@ -2318,7 +2318,7 @@ model BatchPublicIpAddressConfiguration {
   ipFamilies?: IPFamily[];
 
   @doc("The list of public IPs which the Batch service will use when provisioning Compute Nodes. The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/Low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.")
-  ipAddressIds?: ipV4Address[];
+  ipAddressIds?: Azure.Core.armResourceIdentifier[];
 }
 
 @doc("""
@@ -2420,7 +2420,7 @@ model WindowsUserConfiguration {
 
 @doc("The ARM resource id of the disk encryption set.")
 model DiskEncryptionSetParameters {
-  @doc("The ARM resource id of the disk encryption set. The resource should be in the same subscription as the Batch account.")
+  @doc("The ARM resource id of the disk encryption set. The resource must be in the same subscription as the Batch account.")
   id?: Azure.Core.armResourceIdentifier;
 }
 
